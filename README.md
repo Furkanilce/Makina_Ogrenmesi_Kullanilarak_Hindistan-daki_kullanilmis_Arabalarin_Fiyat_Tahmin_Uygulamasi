@@ -13,7 +13,7 @@ Amaç, kullanıcıların araç bilgilerini girdiklerinde tahmini fiyatı görebi
 
 ---
 
-🧰 Kullanılan Teknolojiler
+## 🧰 Kullanılan Teknolojiler
 
 Python 3.x
 
@@ -32,9 +32,10 @@ Streamlit → Web arayüzü
 
 ---
 
-📜 Lisans
+## 📜 Lisans
 
 Bu proje eğitim amaçlıdır. Veri seti Kaggle üzerinden, makale ise IEEE Xplore üzerinden erişilebilir.
+Bu proje [MIT Lisansı](./LICENSE) ile lisanslanmıştır.
 
 ---
 ## ⚙️ Kurulum
