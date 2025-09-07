@@ -58,4 +58,6 @@ python train_model.py
 ## Uygulama Arayüzü
 
 ![Uygulama Ekran Görüntüsü](images1/<img width="1080" height="623" alt="{9BE8D8B7-9179-416C-8E07-B9D09B6FD5F6}" src="https://github.com/user-attachments/assets/f1503114-85bf-46ee-b584-18dec1047de2" />)
+![Uygulama Ekran Görüntüsü](images1/<img width="1080" height="617" alt="{021EE1C3-77B8-4279-8D84-7F3A3A2559B8}" src="https://github.com/user-attachments/assets/bc264ecc-3983-4154-ba67-41f7c1f583ba" />)
+
 
