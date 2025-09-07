@@ -54,3 +54,7 @@ Bu proje [MIT Lisansı](./LICENSE) ile lisanslanmıştır.
 ```bash
 python train_model.py
 ```
+---
+## Uygulama Arayüzü
+
+![Uygulama Ekran Görüntüsü](images1/{9BE8D8B7-9179-416C-8E07-B9D09B6FD5F6})
