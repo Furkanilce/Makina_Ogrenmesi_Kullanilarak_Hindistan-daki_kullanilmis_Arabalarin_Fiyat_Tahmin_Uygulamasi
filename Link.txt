@@ -1,0 +1,2 @@
+Article Link --> https://ieeexplore.ieee.org/document/11076357
+Dataset Link --> https://www.kaggle.com/datasets/sukritchatterjee/used-cars-dataset-cardekho
