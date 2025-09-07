@@ -48,10 +48,10 @@ on_isleme = ColumnTransformer(
 y_train_log = np.log1p(y_train)
 y_test_log = np.log1p(y_test)
 
-#param_grid_rf = {
-#    "mak_model__n_estimators" : [100, 300, 500],
-#    "mak_model__max_depth" : [None, 10, 20],
-#}
+param_grid_rf = {
+    "mak_model__n_estimators" : [100, 300, 500],
+    "mak_model__max_depth" : [None, 10, 20],
+}
 
 param_grid_xgb = {
     "mak_model__n_estimators": [300, 500, 800],
@@ -59,20 +59,20 @@ param_grid_xgb = {
     "mak_model__learning_rate": [0.01, 0.05, 0.1],
 }
 
-#param_grid_knn = {
-#    "mak_model__n_neighbors": [3, 5, 7, 9, 11],
-#    "mak_model__weights": ["uniform", "distance"],
-#    "mak_model__metric": ["euclidean", "manhattan"]
-#}
+param_grid_knn = {
+    "mak_model__n_neighbors": [3, 5, 7, 9, 11],
+    "mak_model__weights": ["uniform", "distance"],
+    "mak_model__metric": ["euclidean", "manhattan"]
+}
 
 
 
-#rf_model = Pipeline(steps = [
-#    ("on_isleme", on_isleme),
-#    ("mak_model", RandomForestRegressor(random_state = 42)),
-#])
-#grid_rf = GridSearchCV(rf_model, param_grid = param_grid_rf, cv = 3, n_jobs = -1, scoring = "r2")
-#grid_rf.fit(x_train, y_train_log)
+rf_model = Pipeline(steps = [
+    ("on_isleme", on_isleme),
+    ("mak_model", RandomForestRegressor(random_state = 42)),
+])
+grid_rf = GridSearchCV(rf_model, param_grid = param_grid_rf, cv = 3, n_jobs = -1, scoring = "r2")
+grid_rf.fit(x_train, y_train_log)
 
 xgb_model = Pipeline(steps = [
     ("on_isleme", on_isleme),
@@ -81,39 +81,40 @@ xgb_model = Pipeline(steps = [
 grid_xgb = GridSearchCV(xgb_model, param_grid = param_grid_xgb, cv = 3, n_jobs = -1, scoring = "r2")
 grid_xgb.fit(x_train, y_train_log)
 
-#knn_model = Pipeline(steps = [
-#    ("on_isleme", on_isleme),
-#    ("mak_model", KNeighborsRegressor())
-#])
-#grid_knn = GridSearchCV(knn_model, param_grid = param_grid_knn, cv = 3, n_jobs = -1, scoring = "r2")
-#grid_knn.fit(x_train, y_train_log)
+knn_model = Pipeline(steps = [
+    ("on_isleme", on_isleme),
+    ("mak_model", KNeighborsRegressor())
+])
+grid_knn = GridSearchCV(knn_model, param_grid = param_grid_knn, cv = 3, n_jobs = -1, scoring = "r2")
+grid_knn.fit(x_train, y_train_log)
 
 
 
 
 
-#y_pred_rf = np.expm1(grid_rf.best_estimator_.predict(x_test))
-#print("RandomForest R²:", r2_score(y_test, y_pred_rf))
-#print("RandomForest mean squared error:", mean_squared_error(y_test, y_pred_rf))
-#print("RandomForest mean absolute error:", mean_absolute_error(y_test, y_pred_rf))
-#print("-----------------------------------------------------------------------------------------")
+y_pred_rf = np.expm1(grid_rf.best_estimator_.predict(x_test))
+print("RandomForest R²:", r2_score(y_test, y_pred_rf))
+print("RandomForest mean squared error:", mean_squared_error(y_test, y_pred_rf))
+print("RandomForest mean absolute error:", mean_absolute_error(y_test, y_pred_rf))
+print("-----------------------------------------------------------------------------------------")
 
-#y_pred_xgb = np.expm1(grid_xgb.best_estimator_.predict(x_test))
-#print("XGBoost R²:", r2_score(y_test, y_pred_xgb))
-#print("XGBoost mean squared error :", mean_squared_error(y_test, y_pred_xgb))
-#print("XGBoost mean absolute error :", mean_absolute_error(y_test, y_pred_xgb))
-#print("-----------------------------------------------------------------------------------------")
+y_pred_xgb = np.expm1(grid_xgb.best_estimator_.predict(x_test))
+print("XGBoost R²:", r2_score(y_test, y_pred_xgb))
+print("XGBoost mean squared error :", mean_squared_error(y_test, y_pred_xgb))
+print("XGBoost mean absolute error :", mean_absolute_error(y_test, y_pred_xgb))
+print("-----------------------------------------------------------------------------------------")
 
-#Makalede Kullanılan Algoritma
-#y_pred_knn = np.expm1(grid_knn.best_estimator_.predict(x_test))
-#print("KNN R²:", r2_score(y_test, y_pred_knn))
-#print("KNN mean squared error: ", mean_squared_error(y_test, y_pred_knn))
-#print("KNN mean absolute error: ", mean_absolute_error(y_test, y_pred_knn))
+Makalede Kullanılan Algoritma
+y_pred_knn = np.expm1(grid_knn.best_estimator_.predict(x_test))
+print("KNN R²:", r2_score(y_test, y_pred_knn))
+print("KNN mean squared error: ", mean_squared_error(y_test, y_pred_knn))
+print("KNN mean absolute error: ", mean_absolute_error(y_test, y_pred_knn))
 
 
-#sayisal_ozellik = ["araba_yasi", "km", "km_year", "Length", "Width", "Height", "Wheel Base", "Seats",
-#                   "Max Power Delivered", "Max Torque Delivered"]
-#kategorik_ozellikler = ["marka_model", "fuel", "transmission", "body", "City", "Color", "Drive Type", "carType", "owner_type"]
+sayisal_ozellik = ["araba_yasi", "km", "km_year", "Length", "Width", "Height", "Wheel Base", "Seats",
+                   "Max Power Delivered", "Max Torque Delivered"]
+kategorik_ozellikler = ["marka_model", "fuel", "transmission", "body", "City", "Color", "Drive Type", "carType", "owner_type"]
 
 joblib.dump(grid_xgb.best_estimator_, "xgb_model.pkl")
+
 print("Model başarıyla eğitildi ve 'xgb_model.pkl' olarak kaydedildi.")
