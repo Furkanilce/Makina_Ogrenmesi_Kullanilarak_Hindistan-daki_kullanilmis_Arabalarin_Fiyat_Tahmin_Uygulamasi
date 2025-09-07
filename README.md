@@ -1,1 +1,1 @@
-# Hindistan-da_Kullan-lm-_Ara-_Fiyat_Tahmin_Uygulamas-
+# Hindistan'daki_kullanılmis_Arabalarin_Fiyat_Tahmin_Uygulamasi
