@@ -57,4 +57,5 @@ python train_model.py
 ---
 ## Uygulama Arayüzü
 
-![Uygulama Ekran Görüntüsü](images1/{9BE8D8B7-9179-416C-8E07-B9D09B6FD5F6})
+![Uygulama Ekran Görüntüsü](images1/<img width="1080" height="623" alt="{9BE8D8B7-9179-416C-8E07-B9D09B6FD5F6}" src="https://github.com/user-attachments/assets/f1503114-85bf-46ee-b584-18dec1047de2" />)
+
